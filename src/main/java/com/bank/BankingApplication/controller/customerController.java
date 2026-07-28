@@ -3,6 +3,7 @@ package com.bank.BankingApplication.controller;
 import com.bank.BankingApplication.model.Customer;
 import com.bank.BankingApplication.service.customerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,6 +36,12 @@ public class customerController {
     {
         customerservice.updateCustomer(customerId, customer);
         return "Customer updated successfully";
+    }
+    @DeleteMapping("/customers/{customerId}")
+    public String deleteCustomer(@PathVariable int customerId)
+    {
+        customerservice.deleteCustomer(customerId);
+        return "Customer deleted successfully";
     }
 
 }

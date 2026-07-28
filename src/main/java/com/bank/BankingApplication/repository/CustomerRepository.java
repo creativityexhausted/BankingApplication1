@@ -30,4 +30,9 @@ public class CustomerRepository {
         String sql="UPDATE customer SET customer_name=?, email=?, mobile_number=? WHERE customer_id=?";
         jdbcTemplate.update(sql,customer.getCustomerName(),customer.getEmail(),customer.getMobileNo(),customerId);
     }
+    public void deleteCustomer(int customerId)
+    {
+        String sql="DELETE FROM customer WHERE customer_id=?";
+        jdbcTemplate.update(sql,customerId);
+    }
 }
